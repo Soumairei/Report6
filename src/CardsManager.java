@@ -2,7 +2,7 @@ class CardsManager {
 	private int[] cards;
 
 	
-	//  000 : ジョーカー
+	
 	//  101～113 : スペードの1～13
 	//  201～213 : ハートの1～13
 	//  301～313 : ダイヤの1～13
@@ -12,7 +12,7 @@ class CardsManager {
 	public CardsManager()
 	{
 		// 配列を作成
-		cards = new int[ 13 * 4 + 1 ];
+		cards = new int[52];
 
 		
 		reset();
@@ -25,11 +25,11 @@ class CardsManager {
 		
 		
 
-		for ( int i = 0; i <= 12; ++ i ) {
+		for (int i = 0; i <= 12; ++ i) {
 			
-			cards[ i ] = 100 + i;
+			cards[i]=100+i;
           }
-		for ( int i = 0; i <= 12; ++ i ) {
+		for(int i=0;i <= 12;++i) {
 			cards[i+13]=200+i;	
 		  }
 		for (int i=0;i<=12; ++i){
@@ -45,23 +45,23 @@ class CardsManager {
 	// トランプのシャッフル
 	public void shuffle()
 	{
-		for ( int i = 0; i < cards.length; ++ i ) {
+		for (int i=0; i<cards.length;++i){
 			
 			int rnd = (int)( Math.random() * (double)cards.length );
 
 			// cards[ i ]とcards[ rnd ]を入れ替える
-			int w = cards[ i ];
-			cards[ i ] = cards[ rnd ];
-			cards[ rnd ] = w;
+			int w = cards[i];
+			cards[i] = cards[rnd ];
+			cards[rnd] = w;
 		}
 	}
-	public int get( int num )
+	public int get(int num)
 	{
 		
-		if ( ( 1 > num ) || ( 53 < num ) ) return -1;
+		if ((1>num) || (53<num)) return -1;
 
 		// カードを戻す
-		return cards[ num - 1 ];
+		return cards[num -1];
 	}
 
 
